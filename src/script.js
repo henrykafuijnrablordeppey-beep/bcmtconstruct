@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCMT Construction Engineering Firm</title>
+    <style>
+        :root {
+            --bg-color: #121214;
+            --surface-color: #1a1a1e;
+            --primary-orange: #ff6b00;
+            --fire-green: #00ff66;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a5;
+            --border-color: #2a2a30;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(18, 18, 20, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        .hero {
+            padding: 8rem 5% 4rem 5%;
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(180deg, #16161a 0%, #121214 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--primary-orange);
+        }
+
+        .slogan {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-style: italic;
+            border-left: 2px solid var(--primary-orange);
+            padding-left: 0.8rem;
+            margin: 1rem 0;
+            max-width: 550px;
+        }
+
+        .contact-pill-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-pill {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact-pill:hover {
+            border-color: var(--primary-orange);
+        }
+
+        .mantra-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .mantra-item {
+            border-left: 3px solid var(--primary-orange);
+            padding-left: 0.8rem;
+        }
+
+        .mantra-letter {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-orange);
+        }
+
+        .mantra-word {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 4.5rem 5%;
+        }
+
+        .bg-surface {
+            background-color: var(--surface-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-tag {
+            font-size: 0.9rem;
+            background-color: rgba(255, 107, 0, 0.15);
+            color: var(--primary-orange);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .card ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card ul li::before {
+            content: "▪";
+            color: var(--primary-orange);
+        }
+
+        .fire-card {
+            border-color: #1b3a24;
+            background-color: #141916;
+        }
+
+        .fire-card h3 {
+            color: var(--text-main);
+        }
+
+        .fire-tag {
+            background-color: rgba(0, 255, 102, 0.15);
+            color: var(--fire-green);
+            font-size: 0.9rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .fire-card ul li::before {
+            color: var(--fire-green);
+        }
+
+        .fire-banner {
+            background: linear-gradient(135deg, #131a15 0%, #1c2820 100%);
+            border: 1px solid #1b3a24;
+            padding: 2.5rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .fire-banner h2 {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .fire-banner h2 span {
+            color: var(--fire-green);
+        }
+
+        .fire-slogan {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 0 auto 1.5rem auto;
+            font-weight: 500;
+        }
+
+        .btn-orange {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-orange);
+            color: var(--text-main);
+            padding: 0.8rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-green {
+            display: block;
+            text-align: center;
+            background-color: var(--fire-green);
+            color: #121214;
+            padding: 0.8rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 2.5rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">BCMT<span>.</span></div>
+        <nav>
+            <a href="#bcmt-services">BCMT Firm</a>
+            <a href="#fire-gardens-portal">Fire Gardens</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>BCMT Construction Engineering Firm<span>.</span></h1>
+        
+        <div class="slogan">
+            From blueprints to construction, maintenance and long term trust.
+        </div>
+
+        <div class="mantra-grid">
+            <div class="mantra-item"><div class="mantra-letter">B</div><div class="mantra-word">Blueprint</div></div>
+            <div class="mantra-item"><div class="mantra-letter">C</div><div class="mantra-word">Construct</div></div>
+            <div class="mantra-item"><div class="mantra-letter">M</div><div class="mantra-word">Maintain</div></div>
+            <div class="mantra-item"><div class="mantra-letter">T</div><div class="mantra-word">Trust</div></div>
+        </div>
+
+        <div class="contact-pill-box">
+            <a href="tel:0534640568" class="contact-pill">📞 0534640568 (Call)</a>
+            <a href="https://wa.me/233534640568" class="contact-pill">💬 WhatsApp Line</a>
+            <a href="tel:0202076412" class="contact-pill">📞 0202076412 (Call)</a>
+            <a href="mailto:henrykafuijnrablordeppey@gmail.com" class="contact-pill">✉️ Email BCMT</a>
+        </div>
+    </section>
+
+    <section class="section bg-surface" id="bcmt-services">
+        <h2 class="section-title">BCMT Solutions & Materials</h2>
+        <p class="section-subtitle">Select a department below to place orders or request custom quotations.</p>
+        
+        <div class="grid-box">
+            <div class="card">
+                <h3>Architectural Drawings <span class="price-tag">Get Quote</span></h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Complete custom blueprint design and structural calculations tailored to standard regulation guidelines.</p>
+                <ul>
+                    <li>2D Layouts & Detailed Floorplans</li>
+                    <li>3D Modern Exterior Renderings</li>
+                    <li>Structural Load Analysis & Detailing</li>
+                </ul>
+                <a href="https://wa.me/233534640568?text=I%20want%20to%20inquire%20about%20the%20price%20of%20architectural%20drawings" class="btn-orange">Price a Drawing</a>
+            </div>
+
+            <div class="card">
+                <h3>Building Material Sales <span class="price-tag">Bulk Pricing</span></h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Instant procurement and onsite haulage for absolutely every construction material you require.</p>
+                <ul>
+                    <li>Premium Bulk Cement (All Grades)</li>
+                    <li>High-Tensile Structural Iron Rods & Steel</li>
+                    <li>Aggregates, Sand, Quarry Stones & Blocks</li>
+                    <li>Premium Finishing Materials & Tiles</li>
+                </ul>
+                <a href="https://wa.me/233534640568?text=I%20want%20to%20make%20a%20purchase%20of%20construction%20materials" class="btn-orange">Purchase Materials Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="fire-gardens-portal">
+        <div class="fire-banner">
+            <h2>Welcome to <span>Fire Gardens</span></h2>
+            <div class="fire-slogan">
+                Specialist in landscaping and house to house maintenance.
+            </div>
+            <a href="tel:0244575746" class="contact-pill" style="border-color: var(--fire-green); background-color: rgba(0, 255, 102, 0.05);">📞 Call Fire Gardens: 0244575746</a>
+        </div>
+
+        <div class="grid-box" style="margin-top: 2rem;">
+            <div class="card fire-card">
+                <h3>Ecosystem Products <span class="fire-tag">Live Supply</span></h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Premium botanical and land cultivation supplies delivered directly to your residential site.</p>
+                <ul>
+                    <li>Ornamental Landscape Plants</li>
+                    <li>Premium Green Grass & Turf Layouts</li>
+                    <li>Nutrient-Rich Manure & Organic Soil</li>
+                    <li>Fresh Orchard Fruits & Tree Stocks</li>
+                </ul>
+                <a href="tel:0244575746" class="btn-green">Call to Order Products</a>
+            </div>
+
+            <div class="card fire-card">
+                <h3>Landscaping & Care <span class="fire-tag">Premium</span></h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Professional aesthetic design and routine structural upkeep for your external property spaces.</p>
+                <ul>
+                    <li>Complete House-to-House Maintenance</li>
+                    <li>Lawn Laying & Grass Management</li>
+                    <li>Garden Layouts & Soil Stabilization</li>
+                </ul>
+                <a href="tel:0244575746" class="btn-green">Book Maintenance Session</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BCMT Construction Engineering Firm & Fire Gardens Alliance.</p>
+        <p style="font-size: 0.75rem; color: #555; margin-top: 0.5rem;">From blueprints to construction, maintenance and long term trust.</p>
+    </footer>
+
+</body>
+</html>
